@@ -1,0 +1,44 @@
+# --- Rust ---
+/target
+**/*.rs.bk
+**/*.swp
+Cargo.lock        # (если ты делаешь библиотеку; для бинарей наоборот, нужно включить)
+*.rlib
+
+# --- Env / Config ---
+.env
+.env.*            # если используешь .env.dev / .env.prod
+
+# --- Logs / Dumps ---
+*.log
+*.sql
+*.sqlite
+*.dump
+
+# --- Editor / OS ---
+.DS_Store
+.idea/
+.vscode/
+*.iml
+*.suo
+*.ntvs_analysis.dat
+*.njsproj
+*.sln
+*.sw?
+
+# --- Test output ---
+/coverage/
+*.profraw
+*.profdata
+
+# --- Build tools ---
+/dist/
+/node_modules/
+/pkg/
+
+# --- By mistake ---
+*.old
+*.bak
+*.tmp
+*.temp
+*.orig
