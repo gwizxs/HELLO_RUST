@@ -1,19 +1,19 @@
-mod models;
+mod api;
+mod domain;
 mod state;
-mod handlers;
 
 use axum::{
     extract::{State, Json},
     routing::{get, post, put},
     Router,
 };
-use models::{NewTodo, Todo};
+use api::update::update_todo;
+use domain::todo::{NewTodo, Todo};
 use state::SharedState;
 
 use std::{net::SocketAddr, sync::Arc};
 use tokio::{net::TcpListener, sync::Mutex};
 use uuid::Uuid;
-use crate::handlers::update_todo::update_todo;
 
 #[tokio::main]
 async fn main() {

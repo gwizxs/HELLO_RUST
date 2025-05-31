@@ -1,6 +1,6 @@
-use tokio::sync::Mutex; 
-
-use crate::models::Todo;
+use tokio::sync::Mutex;
 use std::sync::Arc;
 
-pub type SharedState = Arc<Mutex<Vec<Todo>>>; 
+use crate::domain::todo::Todo;
+
+pub type SharedState = Arc<Mutex<Vec<Todo>>>;

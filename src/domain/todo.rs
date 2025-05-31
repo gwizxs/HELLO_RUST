@@ -16,6 +16,5 @@ pub struct NewTodo {
 #[derive(Debug, Clone, Deserialize)]
 pub struct UpdateTodo {
     pub title: Option<String>,
-    pub completed: Option<bool>,   
+    pub completed: Option<bool>,
 }
-

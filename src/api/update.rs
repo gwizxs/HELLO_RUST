@@ -1,11 +1,12 @@
 use axum::{
     extract::{Path, State},
     http::StatusCode,
-    response::IntoResponse,
     Json,
 };
 use uuid::Uuid;
-use crate::{state::SharedState, models::{Todo, UpdateTodo}};
+
+use crate::domain::todo::{Todo, UpdateTodo};
+use crate::state::SharedState;
 
 pub async fn update_todo(
     Path(id): Path<Uuid>,
@@ -27,3 +28,4 @@ pub async fn update_todo(
         Err(StatusCode::NOT_FOUND)
     }
 }
+
