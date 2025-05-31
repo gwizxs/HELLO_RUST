@@ -2,8 +2,6 @@ mod models;
 mod state;
 mod handlers;
 
-use handlers::update_todo;
-
 use axum::{
     extract::{State, Json},
     routing::{get, post, put},
@@ -15,6 +13,7 @@ use state::SharedState;
 use std::{net::SocketAddr, sync::Arc};
 use tokio::{net::TcpListener, sync::Mutex};
 use uuid::Uuid;
+use crate::handlers::update_todo::update_todo;
 
 #[tokio::main]
 async fn main() {
@@ -24,7 +23,7 @@ async fn main() {
         .route("/", get(hello))
         .route("/todos", post(create_todo))
         .route("/get-todo", get(get_todos).post(create_todo))
-        .route("/todos/:id", put(create_todo))
+        .route("/todos/:id", put(update_todo))
         .with_state(todos);
 
     let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
